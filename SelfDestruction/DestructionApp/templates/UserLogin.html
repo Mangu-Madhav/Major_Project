@@ -1,0 +1,166 @@
+{% load static %}
+<html>
+
+<head>
+    <title>Secure Data Self-Destruction</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            margin-top: 20px;
+        }
+
+        h3 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            padding: 10px 0;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #4A90E2;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+        }
+
+        input[type="submit"] {
+            background-color: #4A90E2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #357ABD;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .login-container font {
+            color: red;
+            margin-bottom: 10px;
+        }
+		.hover:hover{
+			color: #357ABD;
+		}
+		#header{
+			margin-bottom: 25px;
+		}
+		#menu{
+			margin: 0 20px;
+			border-radius: 5px;
+			width: 85%;
+		}
+    </style>
+
+    <script LANGUAGE="Javascript">
+        function validate() {
+            var x = document.forms["f1"]["username"].value;
+            var y = document.forms["f1"]["password"].value;
+
+            if (x == null || x == "") {
+                window.alert("Username must be enter");
+                document.f1.username.focus();
+                return false;
+            }
+            if (y == null || y == "") {
+                window.alert("Password must be enter");
+                document.f1.password.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <div id="logo">
+                <center>
+                    <font size="4" color="black">A Self-Reliant Approach To Secure Data Deletion in Cloud Computing</font>
+                </center>
+            </div>
+        </div>
+
+        <div id="menu">
+            <ul>
+                <center>
+                    <li class="hover"><a href="{% url 'index' %}"><font color="black">Home</font></a></li>
+                    <li  class="hover"><a href="{% url 'UserLogin' %}"><font color="black">User Login</font></a></li>
+                    <li  class="hover"><a href="{% url 'Register' %}"><font color="black">New User Signup Here</font></a></li>
+                </center>
+            </ul>
+        </div>
+
+        <div style="width: 100%; display: flex; justify-content: center; align-items: center;" id="splash">
+            <img class="pic" src="{% static 'images/invester.jpg' %}" width="570" height="230" alt="" />
+        </div>
+
+        <div class="login-container">
+            <form name="f1" method="post" action="{% url 'UserLoginAction' %}" onsubmit="return validate()">
+                {% csrf_token %}
+                <h3><b>User Login</b></h3>
+
+                {% if data %}
+                <font>{{ data }}</font>
+                {% endif %}
+
+                <table>
+                    <tr>
+                        <td><label for="username">Username</label></td>
+                        <td><input type="text" name="username" id="username" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password</label></td>
+                        <td><input type="password" name="password" id="password" /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Login" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

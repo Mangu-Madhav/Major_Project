@@ -1,0 +1,267 @@
+{% load static %}
+<html>
+
+<head>
+    <title>Secure Data Self-Destruction</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <!-- Modern Form Styling -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f3f4f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrapper {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        #header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #logo font {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1e293b;
+        }
+
+        #menu ul {
+            list-style: none;
+            padding: 0;
+            background: #e2e8f0;
+            text-align: center;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #menu ul li {
+            display: inline-block;
+            margin: 0 15px;
+            padding: 10px 0;
+        }
+
+        #menu ul li a {
+            text-decoration: none;
+            color: #1e293b;
+            font-weight: 500;
+        }
+
+        #menu ul li a:hover {
+            color: #2563eb;
+        }
+
+        #splash img {
+            width: 50%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+		#splash{
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+        form {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+
+        form h3 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #1f2937;
+        }
+
+        form table {
+            width: 100%;
+        }
+
+        form td {
+            padding: 10px 0;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .center {
+            text-align: center;
+            color: red;
+            margin-bottom: 15px;
+        }
+	#header {
+	height: 75px;
+	position: relative;
+	background: #6E6E6E url(../static/images/img03.jpg) top left no-repeat;
+	padding: 45px;
+	color: #FFFFFF;
+	width: 800px;
+	border: solid 1px #7E7E7E;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	overflow: hidden;
+}
+
+#logo {
+	line-height: 160px;
+	height: 160px;
+	padding: 5px 0 0 0;
+	position: absolute;
+	top: 0;
+	left: 45px;
+}
+#menu ul{
+	padding: 0 45px 25px 45px;
+	position: relative;
+	background: url(../static/images/img01.gif) repeat-x top left;
+	margin: 0 0 0 0;
+	height: 60px;
+	line-height: 60px;
+	width: 800px;
+	border-top: solid 1px #5AD7D7;
+	text-shadow: 0 1px 1px #007D7D;
+}
+    </style>
+
+    <!-- JS Validation -->
+    <script LANGUAGE="Javascript">
+        function checkEmail(t3) {
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(t3)) {
+                return (true)
+            }
+            alert("Invalid E-mail Address! Please re-enter.")
+            return (false);
+        }
+
+        function validate() {
+            var x = document.forms["f1"]["t1"].value;
+            var y = document.forms["f1"]["t2"].value;
+            var contact = document.forms["f1"]["t3"].value;
+            var email = document.forms["f1"]["t4"].value;
+            var address = document.forms["f1"]["t5"].value;
+
+            if (x == null || x == "") {
+                window.alert("Username must be entered");
+                document.f1.t1.focus();
+                return false;
+            }
+            if (y == null || y == "") {
+                window.alert("Password must be entered");
+                document.f1.t2.focus();
+                return false;
+            }
+            if (contact == 0 || isNaN(contact) || contact.length != 10) {
+                alert("Please enter a valid 10-digit contact number");
+                document.f1.t3.focus();
+                return false;
+            }
+            if (email == 0 || !checkEmail(email)) {
+                alert("Please enter a valid email address");
+                document.f1.t4.focus();
+                return false;
+            }
+            if (address == null || address == "") {
+                window.alert("Address must be entered");
+                document.f1.t5.focus();
+                return false;
+            }
+			alert("signup succesful")
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <div id="logo">
+                <font>A Self-Reliant Approach To Secure Data Deletion in Cloud Computing</font>
+            </div>
+        </div>
+
+        <div id="menu">
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'UserLogin' %}">User Login</a></li>
+                <li><a href="{% url 'Register' %}">New User Signup Here</a></li>
+            </ul>
+        </div>
+
+        <div id="splash">
+            <img class="pic" src="{% static 'images/invester.jpg' %}" alt="Banner Image" />
+        </div>
+
+        <form name="f1" method="post" action="{% url 'RegisterAction' %}" onsubmit="return validate()">
+            {% csrf_token %}
+            <h3><b>New User Signup</b></h3>
+
+            <div class="center">{{ data|safe }}</div>
+
+            <table>
+                <tr>
+                    <td>Username</td>
+                    <td><input type="text" name="t1" /></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" name="t2" /></td>
+                </tr>
+                <tr>
+                    <td>Contact No</td>
+                    <td><input type="text" name="t3" /></td>
+                </tr>
+                <tr>
+                    <td>Email ID</td>
+                    <td><input type="text" name="t4" /></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><input type="text" name="t5" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Register" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+{% load static %}
+<html>
+
+<head>
+	<style>
+		body{
+			 background: #f3f4f6;;
+		}
+		.upload-form {
+			max-width: 500px;
+			margin: 40px auto;
+			padding: 25px;
+			border: 2px solid #ccc;
+			border-radius: 15px;
+			background-color: #f8f9fa;
+			box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
+
+		.form-title {
+			text-align: center;
+			font-size: 24px;
+			color: #333;
+			margin-bottom: 20px;
+		}
+
+		.form-message {
+			text-align: center;
+			color: #007BFF;
+			margin-bottom: 20px;
+			font-weight: bold;
+		}
+
+		.form-group {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 15px;
+		}
+
+		.form-group label {
+			font-weight: 600;
+			color: #555;
+			margin-bottom: 5px;
+		}
+
+		.form-group input[type="file"],
+		.form-group input[type="date"] {
+			padding: 8px;
+			border-radius: 8px;
+			border: 1px solid #bbb;
+			background-color: #fff;
+			font-size: 16px;
+		}
+
+		.submit-group {
+			text-align: center;
+		}
+
+		.upload-btn {
+			background-color: #28a745;
+			color: white;
+			border: none;
+			padding: 10px 25px;
+			border-radius: 8px;
+			font-size: 16px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+		.upload-btn:hover {
+			background-color: #218838;
+		}
+		#header{
+			margin-bottom: 25px;
+		}
+		
+	</style>
+	<title>Secure Data Self-Destruction</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+	<script LANGUAGE="Javascript">
+
+		function validate() {
+			var x = document.forms["f1"]["t1"].value;
+			var y = document.forms["f1"]["t2"].value;
+			if (x == null || x == "") {
+				window.alert("File must be upload");
+				document.f1.t1.focus();
+				return false;
+			}
+			if (y == null || y == "") {
+				window.alert("Please choose destruction date");
+				document.f1.t2.focus();
+				return false;
+			}
+			return true;
+		}
+
+
+	</script>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<div id="logo">
+				<center>
+					<font size="4" color="yellow">
+						<font size="4" color="black">A Self-Reliant Approach To Secure Data Deletion in Cloud Computing
+						</font>
+				</center>
+				</font>
+			</div>
+			<div id="slogan">
+
+			</div>
+		</div>
+		<div id="menu">
+			<ul>
+				<center>
+					<li><a href="{% url 'UploadFile' %}">
+							<font size="4" color="black">Upload & Share File</font>
+						</a></font>
+					</li>
+					<li><a href="{% url 'DownloadFile' %}">
+							<font size="4" color="black">Decrypt & Download File</font>
+						</a></font>
+					</li>
+					<li><a href="{% url 'index' %}">
+							<font size="4" color="black">Logout</font>
+						</a></font>
+					</li>
+				</center>
+			</ul>
+			<br class="clearfix" />
+		</div>
+
+		<div id="splash">
+			<img class="pic" src="{% static 'images/invester.jpg' %}" width="870" height="230" alt="" />
+		</div>
+		<center>
+			<form name="f1" method="post" action="{% url 'UploadFileAction' %}" enctype="multipart/form-data"
+				onsubmit="return validate()" class="upload-form">
+				{% csrf_token %}
+				<h3 class="form-title">Upload Data File</h3>
+
+				<div class="form-message">
+					{{ data|safe }}
+				</div>
+
+				<div class="form-group">
+					<label for="t1">Browse File:</label>
+					<input type="file" name="t1" id="t1" />
+				</div>
+
+				<div class="form-group">
+					<label for="t2">Destruction Date:</label>
+					<input type="date" name="t2" id="t2" />
+				</div>
+
+				<div class="form-group submit-group">
+					<input type="submit" value="Upload" class="upload-btn" />
+				</div>
+			</form>
+
+	</div>
+
+	</div>
+
+</body>
+
+</html>

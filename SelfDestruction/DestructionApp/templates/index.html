@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Secure Data Self-Destruction</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background-color: #f5f7fa;
+			color: #333;
+		}
+
+		.container {
+			max-width: 1000px;
+			margin: auto;
+			padding: 20px;
+		}
+
+		.header {
+			background-color: #005792;
+			padding: 20px;
+			border-radius: 8px;
+			text-align: center;
+			color: white;
+		}
+
+		.header h1 {
+			font-size: 1.8em;
+			margin: 0;
+		}
+
+		.nav ul {
+			
+			display: flex;
+			justify-content: center;
+			list-style: none;
+			padding: 20px;
+			background-color: #e0e0e0;
+			margin: 20px 0;
+			border-radius: 8px;
+		}
+
+		.nav ul li {
+			margin: 0 15px;
+		}
+
+		.nav ul li a {
+			text-decoration: none;
+			padding: 10px 20px;
+			color: #005792;
+			font-weight: bold;
+			transition: all 0.3s ease;
+		}
+
+		.nav ul li a:hover {
+			background-color: #005792;
+			color: white;
+			border-radius: 6px;
+		}
+
+		.banner{
+			margin-top: 100px;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.banner img {
+			width: 85%;
+			height: 400px;
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
+
+		.description {
+			background-color: white;
+			padding: 20px;
+			margin-top: 20px;
+			border-radius: 8px;
+			font-size: 1.1em;
+			line-height: 1.6;
+			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<header class="header">
+			<h1>A Self-Reliant Approach To Secure Data Deletion in Cloud Computing</h1>
+		</header>
+
+		<nav class="nav">
+			<ul>
+				<li><a href="{% url 'index' %}">Home</a></li>
+				<li><a href="{% url 'UserLogin' %}">User Login</a></li>
+				<li><a href="{% url 'Register' %}">New User Signup</a></li>
+			</ul>
+		</nav>
+
+		<section class="banner">
+			<img src="{% static 'images/main.png' %}" alt="Banner">
+		</section>
+
+		<section class="description">
+			<p>
+				A Self-Reliant Approach to Secure Data Deletion in Cloud Computing is a robust solution designed to
+				ensure privacy, control, and automatic data self-destruction in cloud environments. This system empowers
+				users to maintain ownership of their sensitive files through controlled encryption and destruction
+				mechanisms.
+			</p>
+		</section>
+	</div>
+</body>
+
+</html>
